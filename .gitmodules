@@ -1,0 +1,6 @@
+[submodule "cv"]
+	path = cv
+	url = git@github.com:lnnrtwttkhn/cv.git
+[submodule "cv-short"]
+	path = cv-short
+	url = git@github.com:lnnrtwttkhn/cv-short.git
