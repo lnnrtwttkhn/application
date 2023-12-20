@@ -1,0 +1,28 @@
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\moderncvtheme[black]{classic}
+\usepackage[english]{babel}
+\usepackage[scale=0.8]{geometry}
+\usepackage{fontawesome5}
+\usepackage{academicons}
+\usepackage{csquotes}
+\nopagenumbers{}
+\renewcommand*{\namefont}{\fontsize{32}{40}\mdseries\upshape}
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH]\THEYEAR}
+\usepackage{xpatch}
+\xpatchcmd{\makeletterclosing}{\bfseries}{\mdseries}{}{}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+% justify text in modern cv:
+% https://tex.stackexchange.com/questions/76015/justify-text-in-moderncv-cover-letter
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\makeatletter
+\patchcmd{\makeletterhead}% <cmd>
+  {\raggedright\@opening}% <search>
+  {\@opening}% <replace>
+  {}{}% <success><failure>
+\makeatother
+% add footnotes
+\usepackage{footmisc}
