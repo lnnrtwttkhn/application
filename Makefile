@@ -17,8 +17,12 @@ $(CV_TARGET): cv/cv_wittkuhn.tex
 $(LETTER_TARGET): cover-letter.tex
 	latexmk -pdf $<
 
-.PHONY: update-cv
-update-cv:
+.PHONY: cv-init
+cv-init:
+	git submodule update --init
+
+.PHONY: cv-update
+cv-update:
 	git submodule update --recursive --remote
 
 .PHONY: clean
