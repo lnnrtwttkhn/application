@@ -1,6 +1,6 @@
+\moderncvtheme[black]{classic}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\moderncvtheme[black]{classic}
 \usepackage[english]{babel}
 \usepackage[scale=0.8]{geometry}
 \usepackage{fontawesome5}
@@ -8,10 +8,14 @@
 \usepackage{csquotes}
 \nopagenumbers{}
 \renewcommand*{\namefont}{\fontsize{32}{40}\mdseries\upshape}
+% set date format:
 \usepackage{datetime}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH]\THEYEAR}
-\usepackage{xpatch}
-\xpatchcmd{\makeletterclosing}{\bfseries}{\mdseries}{}{}
+% remove bold font from letter closing:
+\patchcmd{\makeletterclosing}{\bfseries}{}{}{}
+% remove bold font from letter head:
+\patchcmd{\makeletterhead}{\bfseries}{}{}{}
+% set font to helvetica:
 \usepackage[scaled]{helvet}
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
@@ -24,5 +28,8 @@
   {\@opening}% <replace>
   {}{}% <success><failure>
 \makeatother
-% add footnotes
-\usepackage{footmisc}
+% add subject header:
+\makeatletter
+\newcommand*{\subject}[1]{\def\@subject{\textbf{#1}}}
+\patchcmd{\makeletterhead}{\@date\\[2em]}{\@date\\[2em]\@subject\par\medskip}{}{}
+\makeatother
